@@ -57,7 +57,7 @@ Steps to Run Locally
      
 
  
-1. git clone https://github.com/your-username/ai-blog-gen.git
+1. git clone https://github.com/sad786/ai-blog-platform.git
 2. cd ai-blogging-platform
  
  
