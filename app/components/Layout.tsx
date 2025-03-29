@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Navigation Links */}
           <div className="flex space-x-4">
           <Link href="/blog/create" className="hover:text-blue-300 transition-colors">
-              Create Blog
+             New
             </Link>
             <Link href="/" className="hover:text-blue-300 transition-colors">
               Home
