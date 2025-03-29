@@ -1,4 +1,8 @@
-AI Blogging Platform 
+AI Blogging Platform  Deployed on Vercel Cloud Service.
+
+This project is created in Next.js framework of React.js
+
+Deployed Link: https://ai-blog-gen-pi.vercel.app/
 
 A lightweight, AI-powered blogging platform built with Next.js , Tailwind CSS , and React Toastify . Users can generate blog posts, view them in a clean UI, and perform CRUD operations (Create, Read, Delete). 
 Table of Contents 
@@ -53,10 +57,8 @@ Steps to Run Locally
      
 
  
-1
-2
-git clone https://github.com/your-username/ai-blogging-platform.git
-cd ai-blogging-platform
+1. git clone https://github.com/your-username/ai-blog-gen.git
+2. cd ai-blogging-platform
  
  
 
@@ -64,8 +66,7 @@ Install Dependencies
 bash
  
  
-1
-npm install
+1. npm install
  
  
 
@@ -73,8 +74,7 @@ Run the Development Server
 bash
  
  
-1
-npm run dev
+1. npm run dev
  
  
 
@@ -82,8 +82,7 @@ Open the Application
 Open your browser and navigate to: 
  
  
-1
-http://localhost:3000
+1. http://localhost:3000
  
  
 
@@ -92,16 +91,16 @@ To build the app for production:
 bash
  
 
-     
-    1
-    2
-    npm run build
-    npm start
+    
+1. npm run build
+2. npm start
      
      
      
 
 API Endpoints 
+
+API endpoints starts with api/
 
 All API endpoints are mocked and stored in-memory. The following endpoints are available: 
 1. Generate a New Blog Post 
@@ -113,29 +112,14 @@ All API endpoints are mocked and stored in-memory. The following endpoints are a
      
 
  
-1
-2
-3
-4
-⌄
-{
-  "title": "My First Post",
-  "content": "This is the content of my first post."
-}
+    {
+    "title": "My First Post",
+    "content": "This is the content of my first post."
+    }
  
  
 Response :
 json
- 
-
-     
-    1
-    2
-    3
-    4
-    5
-    6
-    ⌄
     {
       "id": 12345,
       "title": "My First Post",
@@ -153,25 +137,6 @@ json
     Response :
     json
      
-
-     
-    1
-    2
-    3
-    4
-    5
-    6
-    7
-    8
-    9
-    10
-    11
-    12
-    13
-    14
-    ⌄
-    ⌄
-    ⌄
     [
       {
         "id": 12345,
@@ -195,86 +160,16 @@ json
     Endpoint : /api/delete-post
     Method : DELETE
     Query Parameter :
-     
-
- 
-1
-?id=12345
+    1. ?id=12345
  
  
 Response :
 json
- 
-
-     
-    1
-    2
-    3
-    ⌄
     {
       "message": "Post deleted successfully"
     }
-     
-     
-     
+ 
 
-Folder Structure 
- 
- 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-ai-blogging-platform/
-├── app/
-│   ├── api/                # API routes (mocked backend)
-│   │   ├── generate-post.ts
-│   │   ├── get-posts.ts
-│   │   └── delete-post.ts
-│   ├── blog/
-│   │   └── [id]/           # Dynamic route for individual blog posts
-│   │       └── page.tsx
-│   ├── about/
-│   │   └── page.tsx        # About Page
-│   ├── contact/
-│   │   └── page.tsx        # Contact Page
-│   ├── create/
-│   │   └── page.tsx        # Create Blog Page
-│   └── layout.tsx          # Shared layout for all pages
-├── components/
-│   ├── BlogCard.tsx        # Blog card component
-│   ├── BlogForm.tsx        # Form to create new blog posts
-│   ├── Layout.tsx          # Shared layout component
-│   └── SearchBar.tsx       # Search bar component
-├── public/                 # Static assets (if any)
-├── styles/
-│   └── globals.css         # Global styles
-├── package.json            # Project dependencies
-└── README.md               # This file
- 
- 
 Contributing 
 
 We welcome contributions! If you'd like to contribute to this project, follow these steps: 
@@ -285,28 +180,19 @@ We welcome contributions! If you'd like to contribute to this project, follow th
      
 
  
-1
-git checkout -b feature-name
+1. git checkout -b feature-name
  
  
 Commit your changes:
 bash
  
  
-1
-git commit -m "Add feature or fix"
+1. git commit -m "Add feature or fix"
  
  
 Push your branch:
-bash
- 
-
-     
-    1
-    git push origin feature-name
-     
-     
-    Open a pull request on GitHub.
+bash git push origin feature-name
+Open a pull request on GitHub.
      
 
 License 
