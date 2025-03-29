@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import {posts} from '../get-posts/route';
+import {posts} from '../data/posts';
 // interface Post {
 //   id: number;
 //   title: string;

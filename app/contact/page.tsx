@@ -41,7 +41,7 @@ export default function ContactPage() {
       <section className="text-center py-12">
         <h1 className="text-4xl font-bold text-blue-600 mb-4">Contact Us</h1>
         <p className="text-lg text-gray-700">
-          Have questions or feedback? We'd love to hear from you!
+          Have questions or feedback? We would love to hear from you
         </p>
       </section>
 

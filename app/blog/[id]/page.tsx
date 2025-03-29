@@ -27,7 +27,7 @@ export default function BlogPostPage() {
     if (id) {
       fetchPost();
     }
-  }, []);
+  }, [id]);
 
   const fetchPost = async () => {
     try {
