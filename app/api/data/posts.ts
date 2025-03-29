@@ -15,7 +15,7 @@ export const posts:Post[] = [
 
     {
         id:2,
-        title:"Aritificial Intelligence",
+        title:"Artificial Intelligence",
         content:"Artificial Intelligence (AI) refers to the capability of machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and decision-making, often through the use of algorithms and large datasets.",
         createdAt: new Date().toString(),
     },
