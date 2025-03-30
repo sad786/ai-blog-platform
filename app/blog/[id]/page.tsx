@@ -86,40 +86,60 @@ const handleDelete = async () => {
     }
   };
 
+  // return (
+  //   <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg overflow-x-hidden">
+  //     <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+  //     <pre className="text-gray-700">{post.content}</pre>
+  //     <p className="text-sm text-gray-500 mt-4">{new Date(post.createdAt).toLocaleDateString()}</p>
+  //     {/* Delete Button */}
+  //     <button
+  //       onClick={handleDelete}
+  //       className="mt-6 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-all"
+  //     >
+  //       Delete Post
+  //     </button>
+  //   </div>
+  // );
+
+  
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-700">{post.content}</p>
-      <p className="text-sm text-gray-500 mt-4">{new Date(post.createdAt).toLocaleDateString()}</p>
+    <div className="p-6 bg-white-50 min-h-screen" style={{
+      wordWrap: "break-word", // Break long words
+      overflowWrap: "break-word", // Ensure text wraps within the container
+      whiteSpace: "normal", // Allow text to wrap
+    }}>
+    {/* Title and Delete Button */}
+    <div className="flex items-center justify-between mb-4">
+      {/* Title */}
+      <h1 className="text-2xl font-bold text-gray-800">{post.title}</h1>
+
       {/* Delete Button */}
       <button
         onClick={handleDelete}
-        className="mt-6 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-all"
+        className="px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 transition duration-300"
       >
-        Delete Post
+        Delete
       </button>
     </div>
+      {/* Date */}
+      <p className="text-sm text-gray-500 mb-6">{new Date(post.createdAt).toLocaleDateString()}</p>
+
+      {/* Content */}
+      <div
+        className="prose prose-sm sm:prose lg:prose-lg max-w-full overflow-hidden"
+        style={{
+          wordWrap: "break-word", // Break long words
+          overflowWrap: "break-word", // Ensure text wraps within the container
+          whiteSpace: "normal", // Allow text to wrap
+        }}>
+          <pre className="text-gray-700">
+            {post.content}
+            </pre>
+        </div>
+      </div>
   );
+
 }
 
-// // Skeleton Loader Component
-// function BlogSkeleton() {
-//   return (
-//     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg animate-pulse">
-//       {/* Title Skeleton */}
-//       <div className="h-8 bg-gray-300 rounded mb-4"></div>
 
-//       {/* Content Skeleton */}
-//       <div className="space-y-4">
-//         <div className="h-4 bg-gray-300 rounded"></div>
-//         <div className="h-4 bg-gray-300 rounded"></div>
-//         <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-//       </div>
-       
-
-//       {/* Date Skeleton */}
-//       <div className="h-4 bg-gray-300 rounded w-1/4 mt-4"></div>
-//     </div>
-//   );
-// }
 

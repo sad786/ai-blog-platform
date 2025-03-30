@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+* {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: pre-wrap !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

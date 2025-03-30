@@ -3,6 +3,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+// import { marked } from "marked";
+// import DOMPurify from "dompurify";
 
 export default function CreateBlogPage() {
   const [title, setTitle] = useState<string>('');
@@ -10,6 +12,54 @@ export default function CreateBlogPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
+
+  const handleTab = async (e:React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Tab" || e.key === "Enter") {
+      e.preventDefault(); // Prevent default behavior of Tab or Enter
+
+      if (!title.trim()) return; // Ignore empty input
+
+    //  setIsGenerating(true); // Disable text box area
+      setContent(""); // Clear previous content
+      e.preventDefault();
+      setLoading(true);
+   // setContent(""); // Clear previous content
+      try{
+          const response = await fetch("/api/gen-ai-blog", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title }),
+          });
+
+          const reader = response.body?.getReader();
+          const decoder = new TextDecoder();
+
+          if(reader){
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            
+            const chunk = decoder.decode(value);
+            console.log(chunk);
+            let parsedChunk = JSON.parse(chunk.split("\n\n")[0].replace("data: ", ""));
+            parsedChunk = parsedChunk.text;
+
+            parsedChunk = parsedChunk.replace(/#+/g, "").replace(/\*+/g, "").replace(/_/g, "");  // Remove underscores (italic)
+
+            // Converting Markdown to HTML and sanitizing it
+            // const markdownContent = parsedChunk.text;
+            // const htmlContent = DOMPurify.sanitize(marked(markdownContent) as string);
+
+            setContent((prev) => prev + parsedChunk);
+          }
+        }
+    }catch(err){
+      console.log(err);
+    }finally{
+      setLoading(false);
+     }
+  }
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -54,6 +104,9 @@ export default function CreateBlogPage() {
         <h1 className="text-4xl font-bold text-blue-600 mb-4">Create a New Blog Post</h1>
         <p className="text-lg text-gray-700">
           Share your thoughts and ideas with the world by creating a new blog post.
+        </p><br></br>
+        <p className="text-lg text-gray-600">
+          To generate AI blog, enter Title and hit Enter Key or Tab Key on your keyboard and see the AI generated blog.
         </p>
       </section>
 
@@ -70,6 +123,7 @@ export default function CreateBlogPage() {
               id="title"
               placeholder="Enter blog title..."
               value={title}
+              onKeyDown={handleTab}
               onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition-all"
@@ -84,6 +138,7 @@ export default function CreateBlogPage() {
             <textarea
               id="content"
               placeholder="Write your blog content here..."
+              readOnly={loading}
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={10}

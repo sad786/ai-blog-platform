@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {posts} from '../data/posts';
 
+// This API will give the content user provided with title and content body
+
 interface Post {
   id: number;
   title: string;
