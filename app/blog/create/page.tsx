@@ -172,7 +172,7 @@ export default function CreateBlogPage() {
               disabled={loading}
               className="w-64 py-3 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all disabled:bg-gray-400"
             >
-              {loading ? 'Generating...' : 'Generate Blog'}
+              {loading ? 'Generating...' : 'Post Blog'}
             </button>
           </div>
         </form>
