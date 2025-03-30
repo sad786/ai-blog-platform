@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="p-8">
-      <h1 className="text-4xl font-bold text-center mb-8">AI Blogging Platform</h1>
+      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">AI Blogging Platform</h1>
       <SearchBar setSearchTerm={setSearchTerm} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {filteredPosts.map((post) => (
