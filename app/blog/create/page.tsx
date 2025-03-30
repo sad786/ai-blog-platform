@@ -13,15 +13,15 @@ export default function CreateBlogPage() {
   const router = useRouter();
 
 
-  const handleTab = async (e:React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Tab" || e.key === "Enter") {
-      e.preventDefault(); // Prevent default behavior of Tab or Enter
+  const handleTab = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    // if (e.key === "Tab" || e.key === "Enter") {
+      // e.preventDefault(); // Prevent default behavior of Tab or Enter
 
       if (!title.trim()) return; // Ignore empty input
 
     //  setIsGenerating(true); // Disable text box area
       setContent(""); // Clear previous content
-      e.preventDefault();
+    //  e.preventDefault();
       setLoading(true);
    // setContent(""); // Clear previous content
       try{
@@ -58,7 +58,7 @@ export default function CreateBlogPage() {
     }finally{
       setLoading(false);
      }
-  }
+//  }
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -104,10 +104,10 @@ export default function CreateBlogPage() {
         <h1 className="text-4xl font-bold text-blue-600 mb-4">Create a New Blog Post</h1>
         <p className="text-lg text-gray-700">
           Share your thoughts and ideas with the world by creating a new blog post.
-        </p><br></br>
+        </p>{/*
         <p className="text-lg text-gray-600">
           To generate AI blog, enter Title and hit Enter Key or Tab Key on your keyboard and see the AI generated blog.
-        </p>
+        </p>*/}
       </section>
 
       {/* Form Section */}
@@ -123,12 +123,30 @@ export default function CreateBlogPage() {
               id="title"
               placeholder="Enter blog title..."
               value={title}
-              onKeyDown={handleTab}
               onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition-all"
             />
+          
+          {title.trim() &&(
+          <button
+            type="button"
+            onClick={handleTab}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+              marginTop:"10px",
+            }}
+          >
+            Generate by AI
+          </button>
+        )}
           </div>
+
 
           {/* Content Textarea */}
           <div>

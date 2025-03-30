@@ -101,9 +101,9 @@ const handleDelete = async () => {
   //   </div>
   // );
 
-  
+
   return (
-    <div className="p-6 bg-white-50 min-h-screen" style={{
+    <div className="p-6 bg-white min-h-screen bg-white" style={{
       wordWrap: "break-word", // Break long words
       overflowWrap: "break-word", // Ensure text wraps within the container
       whiteSpace: "normal", // Allow text to wrap
