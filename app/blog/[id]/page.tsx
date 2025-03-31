@@ -4,6 +4,8 @@ import {usePathname} from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import BlogSkeleton from 'app/components/Skeleton';
+
+
 //import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -14,6 +16,7 @@ interface Post {
   content: string;
   createdAt: string;
 }
+
 
 export default function BlogPostPage() {
     const pathname = usePathname().split('/');
@@ -116,8 +119,7 @@ const handleDelete = async () => {
       {/* Delete Button */}
       <button
         onClick={handleDelete}
-        className="px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 transition duration-300"
-      >
+        className="px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 transition duration-300">
         Delete
       </button>
     </div>
@@ -126,15 +128,15 @@ const handleDelete = async () => {
 
       {/* Content */}
       <div
-        className="prose prose-sm sm:prose lg:prose-lg max-w-full overflow-hidden"
+        className=""
         style={{
           wordWrap: "break-word", // Break long words
           overflowWrap: "break-word", // Ensure text wraps within the container
           whiteSpace: "normal", // Allow text to wrap
         }}>
-          <pre className="text-gray-700">
+          <pre className="text-gray-700 font-sans antialiased">
             {post.content}
-            </pre>
+          </pre>
         </div>
       </div>
   );
