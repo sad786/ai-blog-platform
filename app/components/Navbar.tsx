@@ -9,7 +9,7 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: 'Create Blog', href: '/create-blog' },
+  { label: 'Create Blog', href: '/blog/create' },
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
