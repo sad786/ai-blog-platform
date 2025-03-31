@@ -36,6 +36,7 @@ const Navbar = () => {
             href="/blog/create"
             className="block md:inline hover:text-blue-300 transition-colors"
             aria-label="Create New Blog"
+            onClick={()=>setIsOpen(false)}
           >
             Create Blog
           </Link>
@@ -43,6 +44,7 @@ const Navbar = () => {
             href="/"
             className="block md:inline hover:text-blue-300 transition-colors"
             aria-label="Home"
+            onClick={()=>setIsOpen(false)}
           >
             Home
           </Link>
@@ -50,6 +52,7 @@ const Navbar = () => {
             href="/about"
             className="block md:inline hover:text-blue-300 transition-colors"
             aria-label="About Us"
+            onClick={()=>setIsOpen(false)}
           >
             About
           </Link>
@@ -57,6 +60,7 @@ const Navbar = () => {
             href="/contact"
             className="block md:inline hover:text-blue-300 transition-colors"
             aria-label="Contact Us"
+            onClick={()=>setIsOpen(false)}
           >
             Contact
           </Link>
