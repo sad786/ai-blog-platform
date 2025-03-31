@@ -212,31 +212,49 @@ const Navbar: React.FC = () => {
           AI Blogging Platform
         </Link>
 
-        {/* Right Side - Desktop Navigation */}
-        <div className="hidden md:flex space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="hover:text-blue-200"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        {/* Hamburger Menu for Mobile */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-2xl focus:outline-none"
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? "✕" : "☰"}
+        </button>
 
-        {/* Mobile Navigation */}
-        <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-white hover:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        {/* Navigation Links */}
+        <div
+          className={`${
+            isOpen ? "block" : "hidden"
+          } md:flex md:space-x-4 mt-4 md:mt-0`}
+        >
+          <Link
+            href="/blog/create"
+            className="block md:inline hover:text-blue-300 transition-colors"
+            aria-label="Create New Blog"
           >
-            {isMenuOpen ? (
-              <FaTimes className="h-6 w-6" />
-            ) : (
-              <FaBars className="h-6 w-6" />
-            )}
-          </button>
+            Create Blog
+          </Link>
+          <Link
+            href="/"
+            className="block md:inline hover:text-blue-300 transition-colors"
+            aria-label="Home"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="block md:inline hover:text-blue-300 transition-colors"
+            aria-label="About Us"
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className="block md:inline hover:text-blue-300 transition-colors"
+            aria-label="Contact Us"
+          >
+            Contact
+          </Link>
         </div>
       </div>
 
