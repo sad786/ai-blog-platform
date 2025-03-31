@@ -40,7 +40,7 @@ export default function CreateBlogPage() {
             if (done) break;
             
             const chunk = decoder.decode(value);
-            console.log(chunk);
+            //console.log(chunk);
             let parsedChunk = JSON.parse(chunk.split("\n\n")[0].replace("data: ", ""));
             parsedChunk = parsedChunk.text;
 
@@ -132,17 +132,19 @@ export default function CreateBlogPage() {
           <button
             type="button"
             onClick={handleTab}
+            disabled = {loading}
             style={{
               padding: "10px 20px",
-              backgroundColor: "#007bff",
+              backgroundColor: loading ? "#ccc" : "#007bff",
               color: "#fff",
               border: "none",
               borderRadius: "4px",
-              cursor: "pointer",
+              cursor: loading ? "not-allowed" : "pointer",
               marginTop:"10px",
             }}
+            className="w-64 py-3 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all disabled:bg-gray-400"
           >
-            Generate by AI
+          {!loading? 'Generate by AI':'Generating...'}
           </button>
         )}
           </div>
