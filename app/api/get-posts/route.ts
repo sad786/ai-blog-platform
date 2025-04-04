@@ -19,10 +19,17 @@ import {posts} from '../data/posts';
 
 
 export async function GET() {
-  if(tag)
-    return 
   
-  return NextResponse.json(posts);
+  const { searchParams } = new URL(request.url);
+  const tag = searchParams.get('tag') || '';
+
+  if(tag){
+    newPosts = posts.map((post) => post.tag===tag)
+    return NextResponse.json(newPosts);
+  }
+  else{
+    return NextResponse.json(posts);
+  }
 }
 
 // export async function POST(){
