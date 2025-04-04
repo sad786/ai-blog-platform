@@ -1,4 +1,4 @@
-import { Request,NextResponse } from 'next/server';
+import {NextResponse } from 'next/server';
 import {posts} from '../data/posts';
 
 // interface Post {
