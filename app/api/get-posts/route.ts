@@ -19,5 +19,12 @@ import {posts} from '../data/posts';
 
 
 export async function GET() {
+  if(tag)
+    return 
+  
   return NextResponse.json(posts);
 }
+
+// export async function POST(){
+  
+// }
