@@ -28,7 +28,8 @@ export default function Home() {
 
   const handleTab = async (tag:string) => {
     //const id = await fetch("api/get-posts/");
-    const posts = await fetch(`api/get-posts?tag=${tag}`)
+    const res = await fetch(`api/get-posts?tag=${tag}`);
+    const posts = await res.json();
     setPosts(posts);
   }
 
