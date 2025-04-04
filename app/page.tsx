@@ -11,6 +11,7 @@ interface Post {
   title: string;
   content: string;
   createdAt: string;
+  tag:string;
 }
 
 export default function Home() {
