@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { Request,NextResponse } from 'next/server';
 import {posts} from '../data/posts';
 
 // interface Post {
@@ -18,7 +18,7 @@ import {posts} from '../data/posts';
 // ];
 
 
-export async function GET() {
+export async function GET(request:Request) {
   
   const { searchParams } = new URL(request.url);
   const tag = searchParams.get('tag') || '';
