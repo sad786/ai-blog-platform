@@ -24,7 +24,7 @@ export async function GET(request:Request) {
   const tag = searchParams.get('tag') || '';
 
   if(tag){
-    newPosts = posts.map((post) => post.tag===tag)
+    const newPosts = posts.map((post) => post.tag===tag)
     return NextResponse.json(newPosts);
   }
   else{
