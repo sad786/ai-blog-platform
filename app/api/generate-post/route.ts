@@ -8,6 +8,7 @@ interface Post {
   title: string;
   content: string;
   createdAt: string;
+  tag:string;
 }
 
 export async function POST(request: NextRequest) {
@@ -23,6 +24,7 @@ export async function POST(request: NextRequest) {
     title,
     content,
     createdAt: new Date().toISOString(),
+    tag:'random'
   };
   posts.push(newPost);
   return NextResponse.json(newPost, { status: 201 });
